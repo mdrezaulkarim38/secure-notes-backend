@@ -74,9 +74,11 @@ router.patch("/:id", async (req, res, next) => {
   try {
     if (!checkId(req, res)) return;
     const data = noteSchema.partial().parse(req.body);
+    if (Object.keys(data).length === 0)
+      return res.status(400).json({ message: "Invalid input" });
     const note = await Note.findOneAndUpdate(
       { _id: req.params.id, userId: req.user.id },
-      data,
+      { $set: data },
       { returnDocument: "after" },
     );
     if (!note) return res.status(404).json({ message: "Note not found" });
