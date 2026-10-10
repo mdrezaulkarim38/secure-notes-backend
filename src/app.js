@@ -2,6 +2,7 @@ const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 const app = express();
+app.set("trust proxy", 1);
 const authRoutes = require("./routes/auth.routes");
 const noteRoutes = require("./routes/note.routes");
 const adminRoutes = require("./routes/admin.routes");
