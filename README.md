@@ -86,10 +86,24 @@ Shared `getPagination()`: defaults `page=1, limit=10`, rejects negatives by norm
 
 Manual verification with curl covering: register/login/me, duplicate email, wrong password, missing token, owner CRUD, cross-user 404, admin 403 vs 200, pagination pages differ and limit cap, interest grouping, `$lookup` posts, invalid id 400, missing user 404. Test data is cleaned from Atlas after each run.
 
+## Demo accounts (live testing)
+
+Live frontend: `https://secure-notes-frontend.pages.dev/`
+
+Use these demo-only accounts to log in and test (passwords are test-only, delete/rotate after interview):
+
+| Role | Name | Email | Password |
+|---|---|---|---|
+| Admin | Sara Admin | sara.admin@test.com | Pass1234 |
+| User | Arif Hossain | arif@test.com | Pass1234 |
+| User | Nabila Rahman | nabila@test.com | Pass1234 |
+
+Admin can manage users and view all notes/interests; normal users can only manage their own notes.
+
 ## Live URLs
 
-- Backend API: TBD
-- Frontend: TBD
+- Backend API: https://secure-notes-backend-yyo2.onrender.com
+- Frontend: https://secure-notes-frontend.pages.dev/
 
 ## Limitations
 
