@@ -39,7 +39,6 @@ function safeUser(u) {
   };
 }
 
-// POST /api/auth/register — always creates role=User, ignores any client role
 router.post("/register", async (req, res, next) => {
   try {
     const data = registerSchema.parse(req.body);
@@ -64,7 +63,6 @@ router.post("/register", async (req, res, next) => {
   }
 });
 
-// POST /api/auth/login
 router.post("/login", loginLimiter, async (req, res, next) => {
   try {
     const data = loginSchema.parse(req.body);
@@ -84,7 +82,6 @@ router.post("/login", loginLimiter, async (req, res, next) => {
   }
 });
 
-// GET /api/auth/me
 router.get("/me", authenticate, async (req, res, next) => {
   try {
     const user = await User.findById(req.user.id);
